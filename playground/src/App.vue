@@ -4,6 +4,6 @@ import Button from "../../src/runtime/components/Button.vue"
 
 <template>
   <div class="fixed inset-0 flex items-center justify-center">
-    <Button :variant="'primary'"  >Hello</Button>
+    <Button label="Hello" />
   </div>
 </template>

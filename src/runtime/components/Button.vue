@@ -11,14 +11,20 @@ export interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   * @defaultValue 'button'
   */
   as?: any
+  /**
+   * @defaultValue 'md'
+   */
   size?: keyof Button['variants']['size']
   color?: keyof Button['variants']['color']
+  /**
+   * @defaultValue 'primary'
+   */
   variant?: keyof Button['variants']['variant']
   disabled?: boolean
   loading?: boolean
   block?: boolean
   class?: any
-  ui?: Button['slots']
+  ui?: Partial<Button['slots']>
 }
 </script>
 <script setup lang="ts">
@@ -46,6 +52,10 @@ const ui = computed(() => tv(theme)({
     ui?.base({
       class: [props.ui?.base, props.class],
     })]">
-    <slot />
+    <slot :ui="ui">
+      <span v-if="props.label" data-slot="label" :class="ui.label({ class: props.ui?.label })">
+        {{ props.label }}
+      </span>
+    </slot>
   </component>
 </template>

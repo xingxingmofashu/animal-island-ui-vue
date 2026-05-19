@@ -2,7 +2,7 @@
 const color = [
   "danger",
   "ghost",
-  "default"
+  "primary"
 ] as const
 
 const variant = [
@@ -14,32 +14,33 @@ const variant = [
 ] as const
 
 const size = [
-  "small",
-  "middle",
-  "large"
+  "sm",
+  "md",
+  "lg"
 ] as const
 
 export default {
   slots: {
-    base: `relative inline-flex items-center justify-center gap-(--animal-spacing-sm) font-(family-name:--animal-font-family) font-semibold whitespace-nowrap cursor-pointer border-(length:--animal-border-width) border-solid border-transparent rounded-[50px] transition-all duration-(--animal-motion-duration-base) ease-(--animal-motion-ease) select-none outline-none leading-none tracking-[0.02em] shadow-(--animal-shadow-sm) 
-      focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--animal-primary-color) focus-visible:outline-offset-2 `
+    base: `relative inline-flex items-center justify-center gap-(--animal-spacing-sm)  whitespace-nowrap cursor-pointer border-(length:--animal-border-width) border-solid border-transparent rounded-[50px] transition-all duration-(--animal-motion-duration-base) ease-(--animal-motion-ease) select-none outline-none leading-none tracking-[0.02em] shadow-(--animal-shadow-sm) 
+      focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--animal-primary-color) focus-visible:outline-offset-2 `,
+    label: 'font-(family-name:--animal-font-family) font-semibold'
   },
   variants: {
     size: {
-      small: {
+      sm: {
         base: 'h-(--animal-height-sm) px-(--animal-spacing-lg) py-0 text-(length:--animal-font-size-sm) rounded-(--animal-border-radius-sm)'
       },
-      middle: {
+      md: {
         base: 'h-(--animal-height-base) px-(--animal-spacing-lg) py-0 text-(length:--animal-font-size-base)'
       },
-      large: {
+      lg: {
         base: 'h-(--animal-height-lg) px-8 py-0 text-(length:--animal-font-size-lg) rounded-(--animal-border-radius-lg)'
       },
     },
     color: {
-      danger: '',
       ghost: 'bg-transparent shadow-none',
-      default: ''
+      danger: '',
+      primary: ''
     },
     variant: {
       primary: 'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-bg-color) shadow-[0_5px_0_0_#bdaea0]  hover:not-disabled:shadow-[0_6px_0_0_#bdaea0] hover:not-disabled:-translate-y-px  hover:not-disabled:bg-(--animal-bg-color) hover:not-disabled:border-(--animal-bg-color) active:not-disabled:bg-(--animal-bg-color) active:not-disabled:border-(--animal-bg-color)  active:not-disabled:shadow-[0_1px_0_0_#bdaea0] active:not-disabled:translate-y-0.5',
@@ -97,7 +98,7 @@ export default {
   ],
   defaultVariants: {
     variant: 'primary' as typeof variant[number],
-    size: 'middle' as typeof size[number],
-    color: 'default' as typeof color[number]
+    size: 'md' as typeof size[number],
+    color: 'primary' as typeof color[number]
   },
 }
