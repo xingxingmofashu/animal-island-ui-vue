@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animal-island-vue": "workspace:*",
     "@tailwindcss/vite": "^4.3.0",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.34"

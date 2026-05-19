@@ -1,22 +1,19 @@
 {
-  "name": "animal-island-ui-vue",
+  "name": "animal-island-vue",
   "type": "module",
   "private": true,
-  "packageManager": "bun@1.3.14",
+  "packageManager": "pnpm@11.1.3",
   "scripts": {
-    "dev":"cd playground && bun run dev"
+    "dev": "pnpm --filter playground dev"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "catalog": {
-      "@types/bun": "1.3.14",
-      "@types/node": "25.8.0",
-      "@tsconfig/bun": "1.0.10",
-      "typescript": "5.9.3"
-    }
+  "exports": {
+    ".": {
+      "style": "./src/runtime/index.css"
+    },
+    "./runtime/*": "./src/runtime/*",
+    "./runtime/index.css": "./src/runtime/index.css"
   },
+  "style": "./src/runtime/index.css",
   "dependencies": {
     "@vueuse/core": "^14.3.0",
     "tailwind-merge": "3.6.0",
@@ -24,15 +21,10 @@
     "tailwindcss": "4.3.0"
   },
   "devDependencies": {
-    "@tsconfig/bun": "catalog:",
+    "@tsconfig/bun": "1.0.10",
+    "@types/bun": "1.3.14",
+    "@types/node": "25.8.0",
+    "typescript": "5.9.3",
     "vue": "^3.5.34"
-  },
-  "overrides": {
-    "@types/bun": "catalog:",
-    "@types/node": "catalog:"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "semi": false
   }
 }
