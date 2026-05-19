@@ -50,7 +50,9 @@ export default {
       link: 'shadow-none text-(--animal-primary-color) bg-transparent border-transparent hover:not-disabled:text-(--animal-primary-color-hover)  hover:not-disabled:opacity-85 active:not-disabled:text-(--animal-primary-color-active)',
     },
     disabled: {
-      true: 'disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none'
+      true: {
+        base: 'disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none'
+      }
     },
     block: {
       true: {
@@ -59,7 +61,7 @@ export default {
     },
     loading: {
       true: {
-        base: 'cursor-default pointer-events-none shadow-none bg-[#0ec4b6] border-4 border-solid border-[4de2da] text-white bg-[repeating-linear-gradient(-45deg,#0ec4b6,#0ec4b6_10px,#01b0a7_10px,#01b0a7_20px)] bg-size-[28.28px,28.28px] animate-[var(--animal-btn-loading),1s,linear,infinite]'
+        base: 'cursor-default pointer-events-none shadow-none bg-[#0ec4b6] border-4 border-solid border-[#4de2da] text-white bg-[repeating-linear-gradient(-45deg,#0ec4b6,#0ec4b6_10px,#01b0a7_10px,#01b0a7_20px)] bg-size-[28.28px_28.28px] animate-[btn-loading_1s_linear_infinite] '
       }
     }
   },
