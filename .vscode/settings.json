@@ -1,0 +1,27 @@
+{
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss",
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "ui"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"
+    ]
+  ],
+  "tailwindCSS.experimental.configFile": {
+    "playground/src/assets/css/main.css": [
+      "playground/**",
+      "src/**"
+    ],
+  }
+}
