@@ -1,6 +1,6 @@
 export default {
   slots: {
-    base: 'inline-block'
+    base: 'inline-block bg-no-repeat bg-center bg-contain'
   },
   variants: {
     bounce: {
@@ -9,16 +9,16 @@ export default {
       }
     },
     variant: {
-      miles: `bg-[url(../assets/miles.svg)]`,
-      camera: 'bg-[url(../assets/camera.svg)]',
-      chat: 'bg-[url(../assets/chat.svg)]',
-      critterpedia: 'bg-[url(../assets/critterpedia.svg)]',
-      design: 'bg-[url(../assets/design.svg)]',
-      diy: 'bg-[url(../assets/diy.svg)]',
-      helicopter: 'bg-[url(../assets/helicopter.svg)]',
-      map: 'bg-[url(../assets/map.svg)]',
-      shopping: 'bg-[url(../assets/shopping.svg)]',
-      variant: 'bg-[url(../assets/variant.svg)]'
+      miles: `icon-miles`,
+      camera: 'icon-camera',
+      chat: 'icon-chat',
+      critterpedia: 'icon-critterpedia',
+      design: 'icon-design',
+      diy: 'icon-diy',
+      helicopter: 'icon-helicopter',
+      map: 'icon-map',
+      shopping: 'icon-shopping',
+      variant: 'icon-variant'
     }
   }
 }
