@@ -8,8 +8,10 @@ export default {
   slots: {
     base: `relative inline-flex items-center justify-center gap-(--animal-spacing-sm)  whitespace-nowrap cursor-pointer border-(length:--animal-border-width) border-solid border-transparent rounded-[50px] transition-all duration-(--animal-motion-duration-base) ease-(--animal-motion-ease) select-none outline-none leading-none tracking-[0.02em] shadow-(--animal-shadow-sm) focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--animal-primary-color) focus-visible:outline-offset-2 `,
     label: 'font-(family-name:--animal-font-family) font-semibold',
-    leadingIcon: 'inline-flex items-center',
-    trailingIcon: 'inline-flex items-center'
+    leading: 'inline-flex items-center',
+    leadingIcon: '',
+    trailing: 'inline-flex items-center',
+    trailingIcon: ''
   },
   variants: {
     size: {
