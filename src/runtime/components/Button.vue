@@ -2,7 +2,6 @@
 import type { ButtonHTMLAttributes } from '../types/html'
 import type { ComponentConfig } from '../types/tv'
 import theme from '../../theme/button'
-import { omit } from '../utils'
 import type { IconProps } from './Icon.vue'
 
 type Button = ComponentConfig<typeof theme>
@@ -51,6 +50,7 @@ export interface ButtonSlots {
 <script setup lang="ts">
 import { computed, type VNode } from 'vue'
 import { tv } from 'tailwind-variants'
+import { pick } from '../utils'
 import Icon from './Icon.vue'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -73,7 +73,8 @@ const ui = computed(() =>
 <template>
   <component
     :is="props.as"
-    v-bind="omit(props, ['disabled', 'type', 'onClick'])"
+    data-slot="base"
+    v-bind="pick(props, ['disabled', 'type', 'onClick'])"
     :class="[
       ui?.base({
         class: [props.ui?.base, props.class]
@@ -81,8 +82,8 @@ const ui = computed(() =>
     ]"
   >
     <slot :ui="ui" name="leading">
-      <span v-if="leading && leadingIcon" :class="ui.leadingIcon({ class: props.ui?.leadingIcon })">
-        <Icon :name="leadingIcon" />
+      <span v-if="leading && leadingIcon" data-slot="leading" :class="ui.leading({ class: props.ui?.leading })">
+        <Icon :name="leadingIcon" data-slot="leadingIcon" :class="ui.leadingIcon({ class: props.ui?.leadingIcon })" />
       </span>
     </slot>
     <slot :ui="ui">
@@ -91,8 +92,12 @@ const ui = computed(() =>
       </span>
     </slot>
     <slot :ui="ui" name="trailing">
-      <span v-if="trailing && trailingIcon" :class="ui.trailingIcon({ class: props.ui?.trailingIcon })">
-        <Icon :name="trailingIcon" />
+      <span v-if="trailing && trailingIcon" data-slot="trailing" :class="ui.trailing({ class: props.ui?.trailing })">
+        <Icon
+          :name="trailingIcon"
+          data-slot="trailingIcon"
+          :class="ui.trailingIcon({ class: props.ui?.trailingIcon })"
+        />
       </span>
     </slot>
   </component>
