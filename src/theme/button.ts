@@ -1,28 +1,12 @@
+const color = ['danger', 'ghost', 'primary'] as const
 
-const color = [
-  "danger",
-  "ghost",
-  "primary"
-] as const
+const variant = ['primary', 'default', 'dashed', 'text', 'link'] as const
 
-const variant = [
-  "primary",
-  "default",
-  "dashed",
-  "text",
-  "link"
-] as const
-
-const size = [
-  "sm",
-  "md",
-  "lg"
-] as const
+const size = ['sm', 'md', 'lg'] as const
 
 export default {
   slots: {
-    base: `relative inline-flex items-center justify-center gap-(--animal-spacing-sm)  whitespace-nowrap cursor-pointer border-(length:--animal-border-width) border-solid border-transparent rounded-[50px] transition-all duration-(--animal-motion-duration-base) ease-(--animal-motion-ease) select-none outline-none leading-none tracking-[0.02em] shadow-(--animal-shadow-sm) 
-      focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--animal-primary-color) focus-visible:outline-offset-2 `,
+    base: `relative inline-flex items-center justify-center gap-(--animal-spacing-sm)  whitespace-nowrap cursor-pointer border-(length:--animal-border-width) border-solid border-transparent rounded-[50px] transition-all duration-(--animal-motion-duration-base) ease-(--animal-motion-ease) select-none outline-none leading-none tracking-[0.02em] shadow-(--animal-shadow-sm) focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--animal-primary-color) focus-visible:outline-offset-2 `,
     label: 'font-(family-name:--animal-font-family) font-semibold',
     leadingIcon: 'inline-flex items-center',
     trailingIcon: 'inline-flex items-center'
@@ -37,7 +21,7 @@ export default {
       },
       lg: {
         base: 'h-(--animal-height-lg) px-8 py-0 text-(length:--animal-font-size-lg) rounded-(--animal-border-radius-lg)'
-      },
+      }
     },
     color: {
       ghost: 'bg-transparent shadow-none',
@@ -45,11 +29,14 @@ export default {
       primary: ''
     },
     variant: {
-      primary: 'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-bg-color) shadow-[0_5px_0_0_#bdaea0]  hover:not-disabled:shadow-[0_6px_0_0_#bdaea0] hover:not-disabled:-translate-y-px  hover:not-disabled:bg-(--animal-bg-color) hover:not-disabled:border-(--animal-bg-color) active:not-disabled:bg-(--animal-bg-color) active:not-disabled:border-(--animal-bg-color)  active:not-disabled:shadow-[0_1px_0_0_#bdaea0] active:not-disabled:translate-y-0.5',
-      default: 'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-border-color) hover:not-disabled:text-(--animal-primary-color) hover:not-disabled:border-(--animal-primary-color) hover:not-disabled:shadow-(--animal-shadow-base) hover:not-disabled:-translate-y-px active:not-disabled:text-(--animal-primary-color-active) active:not-disabled:border-(--animal-primary-color-active)  active:not-disabled:shadow-(--animal-shadow-active) active:not-disabled:translate-y-0',
-      dashed: 'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-border-color)  border-dashed hover:not-disabled:text-(--animal-primary-color) hover:not-disabled:border-(--animal-primary-color) hover:not-disabled:-translate-y-px active:not-disabled:text-(--animal-primary-color-active) active:not-disabled:border-(--animal-primary-color-active) active:not-disabled:translate-y-0',
+      primary:
+        'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-bg-color) shadow-[0_5px_0_0_#bdaea0]  hover:not-disabled:shadow-[0_6px_0_0_#bdaea0] hover:not-disabled:-translate-y-px  hover:not-disabled:bg-(--animal-bg-color) hover:not-disabled:border-(--animal-bg-color) active:not-disabled:bg-(--animal-bg-color) active:not-disabled:border-(--animal-bg-color)  active:not-disabled:shadow-[0_1px_0_0_#bdaea0] active:not-disabled:translate-y-0.5',
+      default:
+        'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-border-color) hover:not-disabled:text-(--animal-primary-color) hover:not-disabled:border-(--animal-primary-color) hover:not-disabled:shadow-(--animal-shadow-base) hover:not-disabled:-translate-y-px active:not-disabled:text-(--animal-primary-color-active) active:not-disabled:border-(--animal-primary-color-active)  active:not-disabled:shadow-(--animal-shadow-active) active:not-disabled:translate-y-0',
+      dashed:
+        'text-(--animal-text-color) bg-(--animal-bg-color) border-(--animal-border-color)  border-dashed hover:not-disabled:text-(--animal-primary-color) hover:not-disabled:border-(--animal-primary-color) hover:not-disabled:-translate-y-px active:not-disabled:text-(--animal-primary-color-active) active:not-disabled:border-(--animal-primary-color-active) active:not-disabled:translate-y-0',
       text: 'shadow-none text-(--animal-text-color) bg-transparent border-transparent hover:not-disabled:bg-(--animal-bg-color-secondary) active:not-disabled:bg-[darken(#f0e8d8,5%)]',
-      link: 'shadow-none text-(--animal-primary-color) bg-transparent border-transparent hover:not-disabled:text-(--animal-primary-color-hover)  hover:not-disabled:opacity-85 active:not-disabled:text-(--animal-primary-color-active)',
+      link: 'shadow-none text-(--animal-primary-color) bg-transparent border-transparent hover:not-disabled:text-(--animal-primary-color-hover)  hover:not-disabled:opacity-85 active:not-disabled:text-(--animal-primary-color-active)'
     },
     disabled: {
       true: {
@@ -59,7 +46,7 @@ export default {
     block: {
       true: {
         base: 'flex w-full'
-      },
+      }
     },
     loading: {
       true: {
@@ -69,40 +56,44 @@ export default {
   },
   compoundVariants: [
     {
-      color: 'danger' as typeof color[number],
-      variant: 'primary' as typeof variant[number],
+      color: 'danger' as (typeof color)[number],
+      variant: 'primary' as (typeof variant)[number],
       class: {
         base: 'text-white bg-(--animal-error-color) border-(--animal-error-color) shadow-[0_5px_0_0_var(--animal-error-color-active)] hover:not-disabled:bg-(--animal-error-color-hover) hover:not-disabled:border-(--animal-error-color-hover) hover:not-disabled:shadow-[0_6px_0_0_var(--animal-error-color-active)] active:not-disabled:bg-(--animal-error-color-active) active:not-disabled:border-(--animal-error-color-active) active:not-disabled:shadow-[0_1px_0_0_var(--animal-error-color-active)]'
       }
-    }, {
-      color: 'danger' as typeof color[number],
-      variant: 'default' as typeof variant[number],
+    },
+    {
+      color: 'danger' as (typeof color)[number],
+      variant: 'default' as (typeof variant)[number],
       class: {
         base: 'text-(--animal-error-color) border-(--animal-error-color) hover:not-disabled:text-(--animal-error-color) hover:not-disabled:border-(--animal-error-color-hover) active:not-disabled:text-(--animal-error-color) active:not-disabled:border-(--animal-error-color-active)'
       }
-    }, {
-      color: 'danger' as typeof color[number],
-      variant: 'dashed' as typeof variant[number],
+    },
+    {
+      color: 'danger' as (typeof color)[number],
+      variant: 'dashed' as (typeof variant)[number],
       class: {
         base: 'text-(--animal-error-color) border-(--animal-error-color) hover:not-disabled:text-(--animal-error-color) hover:not-disabled:border-(--animal-error-color-hover) active:not-disabled:text-(--animal-error-color) active:not-disabled:border-(--animal-error-color-active)'
       }
-    }, {
-      color: 'danger' as typeof color[number],
-      variant: 'text' as typeof variant[number],
+    },
+    {
+      color: 'danger' as (typeof color)[number],
+      variant: 'text' as (typeof variant)[number],
       class: {
         base: 'text-white hover:not-disabled:text-white active:not-disabled:text-white'
       }
-    }, {
-      color: 'ghost' as typeof color[number],
-      variant: 'primary' as typeof variant[number],
+    },
+    {
+      color: 'ghost' as (typeof color)[number],
+      variant: 'primary' as (typeof variant)[number],
       class: {
         base: 'text-(--animal-primary-color) bg-transparent shadow-none hover:not-disabled:text-(--animal-primary-color-hover) hover:not-disabled:border-(--animal-primary-color-hover) hover:not-disabled:bg-[#19c8b914]'
       }
     }
   ],
   defaultVariants: {
-    variant: 'primary' as typeof variant[number],
-    size: 'md' as typeof size[number],
-    color: 'primary' as typeof color[number]
-  },
+    variant: 'primary' as (typeof variant)[number],
+    size: 'md' as (typeof size)[number],
+    color: 'primary' as (typeof color)[number]
+  }
 }

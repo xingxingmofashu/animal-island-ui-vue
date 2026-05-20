@@ -8,23 +8,27 @@ const colors = {
   teal: 'bg-[#82d5bb] text-white',
   green: 'bg-[#8ac68a] text-white',
   red: 'bg-[#fc736d] text-white',
-  "lime-green": 'bg-[#d1da49] text-[#3d5a1a]',
-  "yellow-green": 'bg-[#ecdf52] text-[#725d42]',
+  'lime-green': 'bg-[#d1da49] text-[#3d5a1a]',
+  'yellow-green': 'bg-[#ecdf52] text-[#725d42]',
   brown: 'bg-[#9a835a] text-white',
-  "warm-peach-pink": 'bg-[#e18c6f] text-white',
+  'warm-peach-pink': 'bg-[#e18c6f] text-white'
 }
-const variant = ["default", "dashed"] as const
+const variant = ['default', 'dashed'] as const
 
 type Color = keyof typeof colors
-type Variant = typeof variant[number]
+type Variant = (typeof variant)[number]
 
-const compoundVariants = variant.map(variant => Object.entries(colors).map(([color, className]) => ({
-  color: color as Color,
-  variant,
-  class: {
-    root: className
-  }
-}))).flat()
+const compoundVariants = variant
+  .map((variant) =>
+    Object.entries(colors).map(([color, className]) => ({
+      color: color as Color,
+      variant,
+      class: {
+        root: className
+      }
+    }))
+  )
+  .flat()
 
 export default {
   slots: {
@@ -35,7 +39,7 @@ export default {
   },
   variants: {
     color: {
-      ...Object.fromEntries(Object.keys(colors).map((key) => ([key, '']))) as Record<Color, string>
+      ...(Object.fromEntries(Object.keys(colors).map((key) => [key, ''])) as Record<Color, string>)
     },
     variant: {
       default: {
@@ -45,7 +49,7 @@ export default {
         root: 'rounded-[40px_35px_45px_38px/38px_45px_35px_40px] py-3 px-6 font-semibold'
       },
       dashed: {
-        root: 'bg-[#faf8f2] border-2 border-dashed border-[#e8dcc8] shadow-none hover:transform-none hover:border-[#d4c4a8]',
+        root: 'bg-[#faf8f2] border-2 border-dashed border-[#e8dcc8] shadow-none hover:transform-none hover:border-[#d4c4a8]'
       }
     }
   },

@@ -1,8 +1,8 @@
 <script lang="ts">
 import theme from '../../theme/card'
-import type { ComponentConfig } from '../types/tv';
-import { tv } from 'tailwind-variants';
-import type { VNode } from 'vue';
+import type { ComponentConfig } from '../types/tv'
+import { tv } from 'tailwind-variants'
+import type { VNode } from 'vue'
 
 type Card = ComponentConfig<typeof theme>
 export interface CardProps {
@@ -11,8 +11,8 @@ export interface CardProps {
    * @defaultValue 'div'
    */
   as?: any
-  variant?: Card['variants']['variant'],
-  color?: Card['variants']['color'],
+  variant?: Card['variants']['variant']
+  color?: Card['variants']['color']
   class?: any
   ui?: Card['slots']
 }
@@ -24,7 +24,7 @@ export interface CardSlots {
 }
 </script>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<CardProps>(), {
   as: 'div'
@@ -32,10 +32,12 @@ const props = withDefaults(defineProps<CardProps>(), {
 
 const slots = defineSlots<CardSlots>()
 
-const ui = computed(() => tv(theme)({
-  color: props.color,
-  variant: props.variant
-}))
+const ui = computed(() =>
+  tv(theme)({
+    color: props.color,
+    variant: props.variant
+  })
+)
 </script>
 <template>
   <component :is="props.as" data-slot="root" :class="ui.root({ class: [props.ui?.root, props.class] })">

@@ -1,17 +1,17 @@
 <script lang="ts">
-import type { ButtonHTMLAttributes } from '../types/html';
+import type { ButtonHTMLAttributes } from '../types/html'
 import type { ComponentConfig } from '../types/tv'
 import theme from '../../theme/button'
-import { omit } from '../utils';
-import type { IconProps } from './Icon.vue';
+import { omit } from '../utils'
+import type { IconProps } from './Icon.vue'
 
 type Button = ComponentConfig<typeof theme>
 export interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   label?: string
   /**
-  * The element or component this component should render as.
-  * @defaultValue 'button'
-  */
+   * The element or component this component should render as.
+   * @defaultValue 'button'
+   */
   as?: any
   /**
    * @defaultValue 'md'
@@ -37,7 +37,7 @@ export interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   disabled?: boolean
   loading?: boolean
   block?: boolean
-  onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
+  onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<(event: MouseEvent) => void | Promise<void>>
   class?: any
   ui?: Button['slots']
 }
@@ -47,12 +47,11 @@ export interface ButtonSlots {
   default?(props: { ui: Button['ui'] }): VNode[]
   trailing?(props: { ui: Button['ui'] }): VNode[]
 }
-
 </script>
 <script setup lang="ts">
 import { computed, type VNode } from 'vue'
-import { tv } from "tailwind-variants"
-import Icon from './Icon.vue';
+import { tv } from 'tailwind-variants'
+import Icon from './Icon.vue'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   as: 'button',
@@ -60,22 +59,27 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 })
 const slots = defineSlots<ButtonSlots>()
 
-
-const ui = computed(() => tv(theme)({
-  disabled: props?.disabled,
-  variant: props.variant,
-  color: props.color,
-  size: props.size,
-  loading: props.loading,
-  block: props.block
-}))
-
+const ui = computed(() =>
+  tv(theme)({
+    disabled: props?.disabled,
+    variant: props.variant,
+    color: props.color,
+    size: props.size,
+    loading: props.loading,
+    block: props.block
+  })
+)
 </script>
 <template>
-  <component :is="props.as" v-bind="omit(props, ['disabled', 'type', 'onClick'])" :class="[
-    ui?.base({
-      class: [props.ui?.base, props.class],
-    })]">
+  <component
+    :is="props.as"
+    v-bind="omit(props, ['disabled', 'type', 'onClick'])"
+    :class="[
+      ui?.base({
+        class: [props.ui?.base, props.class]
+      })
+    ]"
+  >
     <slot :ui="ui" name="leading">
       <span v-if="leading && leadingIcon" :class="ui.leadingIcon({ class: props.ui?.leadingIcon })">
         <Icon :name="leadingIcon" />
