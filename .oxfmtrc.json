@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["playground/**/*"],
+  "semi": false,
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "none"
+}

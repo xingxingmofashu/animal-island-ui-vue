@@ -9,7 +9,7 @@ export interface IconProps {
   as?: string
   name: keyof Icon['variants']['variant']
   size?: string | number
-  bounce?: boolean,
+  bounce?: boolean
   class?: any
   ui?: Partial<Icon['slots']>
 }
@@ -20,14 +20,21 @@ const props = withDefaults(defineProps<IconProps>(), {
   size: '24'
 })
 
-const ui = computed(() => tv(theme)({
-  variant: props.name,
-  bounce: props.bounce
-}))
-
+const ui = computed(() =>
+  tv(theme)({
+    variant: props.name,
+    bounce: props.bounce
+  })
+)
 </script>
 <template>
-  <component :is="props.as" :class="ui.base({
-    class: [props.ui?.base, props.class],
-  })" :style="{ width: `${props.size}px`, height: `${props.size}px` }" />
+  <component
+    :is="props.as"
+    :class="
+      ui.base({
+        class: [props.ui?.base, props.class]
+      })
+    "
+    :style="{ width: `${props.size}px`, height: `${props.size}px` }"
+  />
 </template>

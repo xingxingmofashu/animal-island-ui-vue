@@ -7,21 +7,11 @@
     "source.fixAll.eslint": "explicit"
   },
   "files.associations": {
-    "*.css": "tailwindcss",
+    "*.css": "tailwindcss"
   },
-  "tailwindCSS.classAttributes": [
-    "class",
-    "ui"
-  ],
-  "tailwindCSS.experimental.classRegex": [
-    [
-      "[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"
-    ]
-  ],
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [["[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"]],
   "tailwindCSS.experimental.configFile": {
-    "playground/src/assets/css/main.css": [
-      "playground/**",
-      "src/**"
-    ],
+    "playground/src/assets/css/main.css": ["playground/**", "src/**"]
   }
 }

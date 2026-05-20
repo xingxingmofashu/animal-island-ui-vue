@@ -1,7 +1,7 @@
 {
   "name": "playground",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "animal-island-vue": "workspace:*",
     "@tailwindcss/vite": "^4.3.0",
+    "animal-island-vue": "workspace:*",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.34"
   },
