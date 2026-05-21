@@ -3,6 +3,7 @@
   "ignorePatterns": ["playground/**/*"],
   "semi": false,
   "printWidth": 120,
+  "singleAttributePerLine": false,
   "singleQuote": true,
   "trailingComma": "none"
 }
