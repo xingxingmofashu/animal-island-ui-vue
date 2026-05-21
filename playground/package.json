@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
-    "animal-island-vue": "workspace:*",
+    "animal-ui": "workspace:*",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.34"
   },
