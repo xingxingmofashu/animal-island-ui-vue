@@ -20,3 +20,9 @@
     transform: scale(1.1) rotate(-4deg);
   }
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
