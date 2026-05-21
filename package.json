@@ -1,5 +1,5 @@
 {
-  "name": "animal-island-vue",
+  "name": "animal-ui",
   "private": true,
   "style": "./src/runtime/index.css",
   "type": "module",
