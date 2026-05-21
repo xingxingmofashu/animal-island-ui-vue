@@ -39,8 +39,10 @@ export default {
     },
     color: {
       primary: '',
-      error: '',
-      warning: ''
+      error:
+        'border-(--animal-error-color) shadow-[0_3px_0_0_var(--animal-error-color-active)] hover:not-disabled:border-(--animal-error-color-hover) hover:not-disabled:shadow-[0_3px_0_0_var(--animal-error-color-active)]',
+      warning:
+        'border-(--animal-warning-color) shadow-[0_3px_0_0_var(--animal-warning-color-active)] hover:not-disabled:border-(--animal-warning-color-hover) hover:not-disabled:shadow-[0_3px_0_0_var(--animal-warning-color-active)]'
     },
     disabled: {
       true: {
