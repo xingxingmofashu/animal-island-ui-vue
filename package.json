@@ -1,19 +1,36 @@
 {
   "name": "animal-ui",
-  "private": true,
-  "style": "./src/runtime/index.css",
+  "version": "0.1.0",
+  "description": "A Vue 3 UI library with Animal Crossing inspired design",
+  "license": "MIT",
+  "style": "./dist/runtime/index.css",
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "main": "./dist/unplugin.mjs",
   "exports": {
     ".": {
-      "style": "./src/runtime/index.css"
+      "types": "./dist/unplugin.d.mts",
+      "style": "./dist/runtime/index.css",
+      "import": "./dist/unplugin.mjs"
     },
-    "./runtime/*": "./src/runtime/*",
-    "./runtime/index.css": "./src/runtime/index.css"
+    "./runtime/*": "./dist/runtime/*",
+    "./components/*": "./dist/runtime/components/*",
+    "./utils": {
+      "types": "./dist/runtime/utils/index.d.ts",
+      "import": "./dist/runtime/utils/index.js"
+    },
+    "./utils/*": {
+      "types": "./dist/runtime/utils/*.d.ts",
+      "import": "./dist/runtime/utils/*.js"
+    }
   },
   "scripts": {
     "dev": "pnpm --filter playground dev",
+    "build": "unbuild",
     "lint": "oxlint",
-    "format": "oxfmt",
+    "format": "oxfmt --check",
     "prepare": "husky"
   },
   "dependencies": {
@@ -29,6 +46,11 @@
     "oxlint": "^1.65.0",
     "oxlint-tsgolint": "^0.23.0",
     "typescript": "5.9.3",
+    "unbuild": "^3.6.1",
+    "vue": "^3.5.34",
+    "vue-tsc": "^3.2.8"
+  },
+  "peerDependencies": {
     "vue": "^3.5.34"
   },
   "packageManager": "pnpm@11.1.3"
